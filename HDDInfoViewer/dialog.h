@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <windows.h>
 #include <QDebug>
+#include <QStringListModel>
 
 namespace Ui {
 class Dialog;
@@ -20,6 +21,7 @@ public:
 
 private:
     Ui::Dialog *ui;
+    QStringListModel *model;
 };
 
 #endif // DIALOG_H

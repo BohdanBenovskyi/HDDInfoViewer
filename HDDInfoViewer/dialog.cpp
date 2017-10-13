@@ -6,6 +6,7 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    model = new QStringListModel(this);
     CheckDrives();
 }
 
@@ -13,6 +14,7 @@ void Dialog::CheckDrives()
 {
     int n;
     char dd[4];
+    QStringList lst;
     DWORD dr = GetLogicalDrives();
 
     for( int i = 0; i < 26; i++ )
@@ -24,7 +26,9 @@ void Dialog::CheckDrives()
             dd[1] = ':';
             dd[2] = '\\';
             dd[3] = 0;
-            qDebug() << "Available disk drives : " << dd << endl;
+            lst << dd;
+            model->setStringList(lst);
+            ui->lstDrives->setModel(model);
         }
     }
 }
