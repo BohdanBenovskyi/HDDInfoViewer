@@ -2,6 +2,8 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <windows.h>
+#include <QDebug>
 
 namespace Ui {
 class Dialog;
@@ -13,6 +15,7 @@ class Dialog : public QDialog
 
 public:
     explicit Dialog(QWidget *parent = 0);
+    void CheckDrives();
     ~Dialog();
 
 private:
