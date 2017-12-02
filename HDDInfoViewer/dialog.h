@@ -19,6 +19,9 @@ public:
     void CheckDrives();
     ~Dialog();
 
+private slots:
+    void on_btnUpdateDrives_clicked();
+
 private:
     Ui::Dialog *ui;
     QStringListModel *model;

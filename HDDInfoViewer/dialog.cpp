@@ -7,7 +7,6 @@ Dialog::Dialog(QWidget *parent) :
 {
     ui->setupUi(this);
     model = new QStringListModel(this);
-    CheckDrives();
 }
 
 void Dialog::CheckDrives()
@@ -36,4 +35,9 @@ void Dialog::CheckDrives()
 Dialog::~Dialog()
 {
     delete ui;
+}
+
+void Dialog::on_btnUpdateDrives_clicked()
+{
+    CheckDrives();
 }

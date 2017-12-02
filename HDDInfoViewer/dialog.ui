@@ -31,6 +31,32 @@
     </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="btnUpdateDrives">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>141</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Оновити список</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnFormat">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>200</y>
+     <width>141</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Форматувати USB</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
