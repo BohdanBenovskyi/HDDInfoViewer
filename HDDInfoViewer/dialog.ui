@@ -13,63 +13,78 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QGroupBox" name="grbDrives">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>141</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Список наявних дисків</string>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QListView" name="lstDrives"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="btnUpdateDrives">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>170</y>
-     <width>141</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Оновити список</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnFormat">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>270</y>
-     <width>141</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Форматувати USB</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnGetInfo">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>230</y>
-     <width>141</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Отримати інформацію</string>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="2" column="0">
+    <widget class="QPushButton" name="btnGetInfo">
+     <property name="text">
+      <string>Отримати інформацію</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QPushButton" name="btnUpdateDrives">
+     <property name="text">
+      <string>Оновити список</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QPushButton" name="btnFormat">
+     <property name="text">
+      <string>Форматувати USB</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="grbDrives">
+     <property name="title">
+      <string>Список наявних дисків</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QListView" name="lstDrives"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="grbInfoDrive">
+     <property name="title">
+      <string>Інформація про диск</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="lblTypeOfDrive">
+        <property name="text">
+         <string>Тип диска:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblNameOfDrive">
+        <property name="text">
+         <string>Ім'я диска:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblSerialNumber">
+        <property name="text">
+         <string>Серійний номер:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblFileSystem">
+        <property name="text">
+         <string>Файлова система:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

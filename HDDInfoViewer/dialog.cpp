@@ -49,7 +49,37 @@ void Dialog::on_btnGetInfo_clicked()
 {
     QModelIndex index = ui->lstDrives->currentIndex();
     QString selItem = index.data(Qt::DisplayRole).toString();
-    qDebug() << "item: " << selItem << endl;
+    LPCWSTR item = (const wchar_t*) selItem.utf16();
+    int d;
+    d = GetDriveType(item);
+    if(d == DRIVE_UNKNOWN)
+        ui->lblTypeOfDrive->setText("Тип диска: неможливо визначити");
+    if(d == DRIVE_NO_ROOT_DIR)
+        ui->lblTypeOfDrive->setText("Тип диска: невірно заданий шлях");
+    if(d == DRIVE_REMOVABLE)
+        ui->lblTypeOfDrive->setText("Тип диска: зовнішній носій");
+    if(d == DRIVE_FIXED)
+        ui->lblTypeOfDrive->setText("Тип диска: фіксований");
+    if(d == DRIVE_REMOTE)
+        ui->lblTypeOfDrive->setText("Тип диска: віддалений або network диск");
+    if(d == DRIVE_CDROM)
+        ui->lblTypeOfDrive->setText("Тип диска: CD-ROM");
+    if(d == DRIVE_RAMDISK)
+        ui->lblTypeOfDrive->setText("Тип диска: RAM диск");
+
+    char VolumeNameBuffer[100];
+    char FileSystemNameBuffer[100];
+    unsigned long VolumeSerialNumber;
+
+    bool GetVolumeInformationFlag = GetVolumeInformationA(selItem.toStdString().c_str(),
+        VolumeNameBuffer, 100, &VolumeSerialNumber, NULL, NULL, FileSystemNameBuffer, 100);
+
+        if(GetVolumeInformationFlag != 0)
+        {
+            ui->lblNameOfDrive->setText("Ім'я диска: " + QString(VolumeNameBuffer));
+            ui->lblSerialNumber->setText("Серійний номер: " + QString::number(VolumeSerialNumber));
+            ui->lblFileSystem->setText("Файлова система: " + QString(FileSystemNameBuffer));
+        }
 }
 
 void Dialog::on_btnFormat_clicked()
