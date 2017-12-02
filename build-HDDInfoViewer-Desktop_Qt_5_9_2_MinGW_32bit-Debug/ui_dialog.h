@@ -30,6 +30,7 @@ public:
     QListView *lstDrives;
     QPushButton *btnUpdateDrives;
     QPushButton *btnFormat;
+    QPushButton *btnGetInfo;
 
     void setupUi(QDialog *Dialog)
     {
@@ -53,7 +54,10 @@ public:
         btnUpdateDrives->setGeometry(QRect(10, 170, 141, 23));
         btnFormat = new QPushButton(Dialog);
         btnFormat->setObjectName(QStringLiteral("btnFormat"));
-        btnFormat->setGeometry(QRect(10, 200, 141, 23));
+        btnFormat->setGeometry(QRect(10, 270, 141, 23));
+        btnGetInfo = new QPushButton(Dialog);
+        btnGetInfo->setObjectName(QStringLiteral("btnGetInfo"));
+        btnGetInfo->setGeometry(QRect(10, 230, 141, 23));
 
         retranslateUi(Dialog);
 
@@ -66,6 +70,7 @@ public:
         grbDrives->setTitle(QApplication::translate("Dialog", "\320\241\320\277\320\270\321\201\320\276\320\272 \320\275\320\260\321\217\320\262\320\275\320\270\321\205 \320\264\320\270\321\201\320\272\321\226\320\262", Q_NULLPTR));
         btnUpdateDrives->setText(QApplication::translate("Dialog", "\320\236\320\275\320\276\320\262\320\270\321\202\320\270 \321\201\320\277\320\270\321\201\320\276\320\272", Q_NULLPTR));
         btnFormat->setText(QApplication::translate("Dialog", "\320\244\320\276\321\200\320\274\320\260\321\202\321\203\320\262\320\260\321\202\320\270 USB", Q_NULLPTR));
+        btnGetInfo->setText(QApplication::translate("Dialog", "\320\236\321\202\321\200\320\270\320\274\320\260\321\202\320\270 \321\226\320\275\321\204\320\276\321\200\320\274\320\260\321\206\321\226\321\216", Q_NULLPTR));
     } // retranslateUi
 
 };

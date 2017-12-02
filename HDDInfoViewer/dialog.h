@@ -19,8 +19,14 @@ public:
     void CheckDrives();
     ~Dialog();
 
+signals:
+    void selectedLstItem();
+
 private slots:
     void on_btnUpdateDrives_clicked();
+    void on_btnGetInfo_clicked();
+    void on_btnFormat_clicked();
+    void on_btnFormat_enabled();
 
 private:
     Ui::Dialog *ui;
