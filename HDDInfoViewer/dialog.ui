@@ -6,83 +6,125 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>453</width>
+    <height>298</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="2" column="0">
-    <widget class="QPushButton" name="btnGetInfo">
-     <property name="text">
-      <string>Отримати інформацію</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QPushButton" name="btnUpdateDrives">
-     <property name="text">
-      <string>Оновити список</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QPushButton" name="btnFormat">
-     <property name="text">
-      <string>Форматувати USB</string>
-     </property>
-    </widget>
-   </item>
+  <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
-    <widget class="QGroupBox" name="grbDrives">
-     <property name="title">
-      <string>Список наявних дисків</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QListView" name="lstDrives"/>
-      </item>
-     </layout>
-    </widget>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QGroupBox" name="grbDrives">
+       <property name="title">
+        <string>Список наявних дисків</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QListView" name="lstDrives"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="btnUpdateDrives">
+         <property name="text">
+          <string>Оновити список</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnGetInfo">
+         <property name="text">
+          <string>Отримати інформацію про диск</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnFormat">
+         <property name="text">
+          <string>Форматувати USB</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
    <item row="0" column="1">
-    <widget class="QGroupBox" name="grbInfoDrive">
-     <property name="title">
-      <string>Інформація про диск</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="lblTypeOfDrive">
-        <property name="text">
-         <string>Тип диска:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblNameOfDrive">
-        <property name="text">
-         <string>Ім'я диска:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblSerialNumber">
-        <property name="text">
-         <string>Серійний номер:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblFileSystem">
-        <property name="text">
-         <string>Файлова система:</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QGroupBox" name="grbInfoDrive">
+       <property name="title">
+        <string>Інформація про диск</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="lblTypeOfDrive">
+          <property name="text">
+           <string>Тип диска:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblNameOfDrive">
+          <property name="text">
+           <string>Ім'я диска:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblSerialNumber">
+          <property name="text">
+           <string>Серійний номер:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblFileSystem">
+          <property name="text">
+           <string>Файлова система:</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="grbFreeSpace">
+       <property name="title">
+        <string>Метрика диска</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="lblAvailableSpace">
+          <property name="text">
+           <string>Доступно для використання (Gb): </string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lblMaxSize">
+          <property name="text">
+           <string>Загальний об'єм (Gb):</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="lblFreeSpace">
+          <property name="text">
+           <string>Вільно на диску (Gb):</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

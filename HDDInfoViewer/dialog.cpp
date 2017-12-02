@@ -80,6 +80,19 @@ void Dialog::on_btnGetInfo_clicked()
             ui->lblSerialNumber->setText("Серійний номер: " + QString::number(VolumeSerialNumber));
             ui->lblFileSystem->setText("Файлова система: " + QString(FileSystemNameBuffer));
         }
+
+        bool fResult;
+
+        qint64 i64FreeBytesToCaller, i64TotalBytes, i64FreeBytes;
+
+        fResult = GetDiskFreeSpaceEx (item, (PULARGE_INTEGER)&i64FreeBytesToCaller,
+        (PULARGE_INTEGER)&i64TotalBytes, (PULARGE_INTEGER)&i64FreeBytes);
+
+        if(fResult){
+            ui->lblAvailableSpace->setText("Доступно для використання (Gb): " + QString::number(((double)i64FreeBytesToCaller)/(1024*1024*1024)));
+            ui->lblFreeSpace->setText("Вільно на диску (Gb): " + QString::number(((double)i64FreeBytes)/(1024*1024*1024)));
+            ui->lblMaxSize->setText("Загальний об'єм (Gb): " + QString::number(((double)i64TotalBytes)/(1024*1024*1024)));
+        }
 }
 
 void Dialog::on_btnFormat_clicked()
