@@ -10,6 +10,21 @@ Dialog::Dialog(QWidget *parent) :
     model = new QStringListModel(this);
     CheckDrives();
     connect(ui->lstDrives, SIGNAL(clicked(QModelIndex)), this, SLOT(on_btnFormat_enabled()));
+    QGradientStops gradientPoints;
+    gradientPoints << QGradientStop(0, Qt::green) << QGradientStop(0.5, Qt::yellow) << QGradientStop(1, Qt::red);
+    ui->RoundBar->setDataColors(gradientPoints);
+    // pie (customized via QPalette + gradient)
+    QPalette p1;
+    p1.setBrush(QPalette::AlternateBase, Qt::black);
+    p1.setColor(QPalette::Text, Qt::yellow);
+    QPalette p2(p1);
+    p2.setBrush(QPalette::Base, Qt::lightGray);
+    p2.setColor(QPalette::Text, Qt::magenta);
+    p2.setColor(QPalette::Shadow, Qt::green);
+    ui->RoundBar->setPalette(p2);
+    ui->RoundBar->setNullPosition(QRoundProgressBar::PositionRight);
+    ui->RoundBar->setBarStyle(QRoundProgressBar::StylePie);
+    ui->RoundBar->setDataColors(gradientPoints);
 }
 
 void Dialog::CheckDrives()
@@ -93,6 +108,11 @@ void Dialog::on_btnGetInfo_clicked()
             ui->lblFreeSpace->setText("Вільно на диску (Gb): " + QString::number(((double)i64FreeBytes)/(1024*1024*1024)));
             ui->lblMaxSize->setText("Загальний об'єм (Gb): " + QString::number(((double)i64TotalBytes)/(1024*1024*1024)));
         }
+
+        int rPoint = (int)(((double)i64TotalBytes)/(1024*1024*1024)) - (((double)i64FreeBytes)/(1024*1024*1024));
+        ui->RoundBar->setRange(0, ((double)i64TotalBytes)/(1024*1024*1024));
+        ui->RoundBar->setValue(rPoint);
+
 }
 
 void Dialog::on_btnFormat_clicked()
@@ -110,7 +130,7 @@ void Dialog::on_btnFormat_enabled()
     if(d == DRIVE_REMOVABLE)
         ui->btnFormat->setEnabled(true);
     else
-       ui->btnFormat->setEnabled(false);
+        ui->btnFormat->setEnabled(false);
 }
 
 

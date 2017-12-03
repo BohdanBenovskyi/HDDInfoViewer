@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        dialog.cpp
+        dialog.cpp \
+    QRoundProgressBar.cpp
 
 HEADERS += \
-        dialog.h
+        dialog.h \
+    QRoundProgressBar.h
 
 FORMS += \
         dialog.ui

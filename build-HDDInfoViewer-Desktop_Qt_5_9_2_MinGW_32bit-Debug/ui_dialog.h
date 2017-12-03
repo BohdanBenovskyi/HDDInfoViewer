@@ -16,18 +16,20 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
+#include "QRoundProgressBar.h"
 
 QT_BEGIN_NAMESPACE
 
 class Ui_Dialog
 {
 public:
-    QGridLayout *gridLayout_3;
+    QGridLayout *gridLayout_4;
     QVBoxLayout *verticalLayout_4;
     QGroupBox *grbDrives;
     QGridLayout *gridLayout;
@@ -36,6 +38,7 @@ public:
     QPushButton *btnUpdateDrives;
     QPushButton *btnGetInfo;
     QPushButton *btnFormat;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_3;
     QGroupBox *grbInfoDrive;
     QVBoxLayout *verticalLayout;
@@ -48,16 +51,19 @@ public:
     QLabel *lblAvailableSpace;
     QLabel *lblMaxSize;
     QLabel *lblFreeSpace;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout_3;
+    QRoundProgressBar *RoundBar;
 
     void setupUi(QDialog *Dialog)
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName(QStringLiteral("Dialog"));
-        Dialog->resize(453, 298);
-        gridLayout_3 = new QGridLayout(Dialog);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        Dialog->resize(597, 298);
+        gridLayout_4 = new QGridLayout(Dialog);
+        gridLayout_4->setSpacing(6);
+        gridLayout_4->setContentsMargins(11, 11, 11, 11);
+        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
@@ -97,8 +103,11 @@ public:
         verticalLayout_4->addLayout(verticalLayout_2);
 
 
-        gridLayout_3->addLayout(verticalLayout_4, 0, 0, 1, 1);
+        gridLayout_4->addLayout(verticalLayout_4, 0, 0, 1, 1);
 
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
@@ -156,7 +165,24 @@ public:
         verticalLayout_3->addWidget(grbFreeSpace);
 
 
-        gridLayout_3->addLayout(verticalLayout_3, 0, 1, 1, 1);
+        horizontalLayout->addLayout(verticalLayout_3);
+
+        groupBox = new QGroupBox(Dialog);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+        gridLayout_3 = new QGridLayout(groupBox);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        RoundBar = new QRoundProgressBar(groupBox);
+        RoundBar->setObjectName(QStringLiteral("RoundBar"));
+
+        gridLayout_3->addWidget(RoundBar, 0, 0, 1, 1);
+
+
+        horizontalLayout->addWidget(groupBox);
+
+
+        gridLayout_4->addLayout(horizontalLayout, 0, 1, 1, 1);
 
 
         retranslateUi(Dialog);
@@ -180,6 +206,7 @@ public:
         lblAvailableSpace->setText(QApplication::translate("Dialog", "\320\224\320\276\321\201\321\202\321\203\320\277\320\275\320\276 \320\264\320\273\321\217 \320\262\320\270\320\272\320\276\321\200\320\270\321\201\321\202\320\260\320\275\320\275\321\217 (Gb): ", Q_NULLPTR));
         lblMaxSize->setText(QApplication::translate("Dialog", "\320\227\320\260\320\263\320\260\320\273\321\214\320\275\320\270\320\271 \320\276\320\261'\321\224\320\274 (Gb):", Q_NULLPTR));
         lblFreeSpace->setText(QApplication::translate("Dialog", "\320\222\321\226\320\273\321\214\320\275\320\276 \320\275\320\260 \320\264\320\270\321\201\320\272\321\203 (Gb):", Q_NULLPTR));
+        groupBox->setTitle(QApplication::translate("Dialog", "\320\224\321\226\320\260\320\263\321\200\320\260\320\274\320\260 \320\267\320\260\320\271\320\275\321\217\321\202\320\276\320\263\320\276 \320\277\321\200\320\276\321\201\321\202\320\276\321\200\321\203", Q_NULLPTR));
     } // retranslateUi
 
 };
