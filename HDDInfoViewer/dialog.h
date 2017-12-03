@@ -5,6 +5,7 @@
 #include <windows.h>
 #include <QDebug>
 #include <QStringListModel>
+#include <lmcons.h>
 
 namespace Ui {
 class Dialog;
@@ -31,6 +32,7 @@ private slots:
 private:
     Ui::Dialog *ui;
     QStringListModel *model;
+
 };
 
 #endif // DIALOG_H

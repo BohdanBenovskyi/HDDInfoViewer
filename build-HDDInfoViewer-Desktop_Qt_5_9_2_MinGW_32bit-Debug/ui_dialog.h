@@ -16,7 +16,6 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
@@ -29,7 +28,7 @@ QT_BEGIN_NAMESPACE
 class Ui_Dialog
 {
 public:
-    QGridLayout *gridLayout_4;
+    QGridLayout *gridLayout_5;
     QVBoxLayout *verticalLayout_4;
     QGroupBox *grbDrives;
     QGridLayout *gridLayout;
@@ -38,7 +37,6 @@ public:
     QPushButton *btnUpdateDrives;
     QPushButton *btnGetInfo;
     QPushButton *btnFormat;
-    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_3;
     QGroupBox *grbInfoDrive;
     QVBoxLayout *verticalLayout;
@@ -51,19 +49,28 @@ public:
     QLabel *lblAvailableSpace;
     QLabel *lblMaxSize;
     QLabel *lblFreeSpace;
+    QVBoxLayout *verticalLayout_6;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_3;
     QRoundProgressBar *RoundBar;
+    QGroupBox *grbName;
+    QGridLayout *gridLayout_4;
+    QVBoxLayout *verticalLayout_5;
+    QLabel *lblHostMashineName;
+    QLabel *lblCurrentArchCPU;
+    QLabel *lblKernelType;
+    QLabel *lblKernelVersion;
+    QLabel *lblAllArchInfo;
 
     void setupUi(QDialog *Dialog)
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName(QStringLiteral("Dialog"));
         Dialog->resize(597, 298);
-        gridLayout_4 = new QGridLayout(Dialog);
-        gridLayout_4->setSpacing(6);
-        gridLayout_4->setContentsMargins(11, 11, 11, 11);
-        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+        gridLayout_5 = new QGridLayout(Dialog);
+        gridLayout_5->setSpacing(6);
+        gridLayout_5->setContentsMargins(11, 11, 11, 11);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
@@ -103,11 +110,8 @@ public:
         verticalLayout_4->addLayout(verticalLayout_2);
 
 
-        gridLayout_4->addLayout(verticalLayout_4, 0, 0, 1, 1);
+        gridLayout_5->addLayout(verticalLayout_4, 0, 0, 1, 1);
 
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
@@ -165,8 +169,11 @@ public:
         verticalLayout_3->addWidget(grbFreeSpace);
 
 
-        horizontalLayout->addLayout(verticalLayout_3);
+        gridLayout_5->addLayout(verticalLayout_3, 0, 1, 1, 1);
 
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         groupBox = new QGroupBox(Dialog);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         gridLayout_3 = new QGridLayout(groupBox);
@@ -179,10 +186,50 @@ public:
         gridLayout_3->addWidget(RoundBar, 0, 0, 1, 1);
 
 
-        horizontalLayout->addWidget(groupBox);
+        verticalLayout_6->addWidget(groupBox);
+
+        grbName = new QGroupBox(Dialog);
+        grbName->setObjectName(QStringLiteral("grbName"));
+        gridLayout_4 = new QGridLayout(grbName);
+        gridLayout_4->setSpacing(6);
+        gridLayout_4->setContentsMargins(11, 11, 11, 11);
+        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        lblHostMashineName = new QLabel(grbName);
+        lblHostMashineName->setObjectName(QStringLiteral("lblHostMashineName"));
+
+        verticalLayout_5->addWidget(lblHostMashineName);
+
+        lblCurrentArchCPU = new QLabel(grbName);
+        lblCurrentArchCPU->setObjectName(QStringLiteral("lblCurrentArchCPU"));
+
+        verticalLayout_5->addWidget(lblCurrentArchCPU);
+
+        lblKernelType = new QLabel(grbName);
+        lblKernelType->setObjectName(QStringLiteral("lblKernelType"));
+
+        verticalLayout_5->addWidget(lblKernelType);
+
+        lblKernelVersion = new QLabel(grbName);
+        lblKernelVersion->setObjectName(QStringLiteral("lblKernelVersion"));
+
+        verticalLayout_5->addWidget(lblKernelVersion);
+
+        lblAllArchInfo = new QLabel(grbName);
+        lblAllArchInfo->setObjectName(QStringLiteral("lblAllArchInfo"));
+
+        verticalLayout_5->addWidget(lblAllArchInfo);
 
 
-        gridLayout_4->addLayout(horizontalLayout, 0, 1, 1, 1);
+        gridLayout_4->addLayout(verticalLayout_5, 0, 0, 1, 1);
+
+
+        verticalLayout_6->addWidget(grbName);
+
+
+        gridLayout_5->addLayout(verticalLayout_6, 0, 2, 1, 1);
 
 
         retranslateUi(Dialog);
@@ -207,6 +254,12 @@ public:
         lblMaxSize->setText(QApplication::translate("Dialog", "\320\227\320\260\320\263\320\260\320\273\321\214\320\275\320\270\320\271 \320\276\320\261'\321\224\320\274 (Gb):", Q_NULLPTR));
         lblFreeSpace->setText(QApplication::translate("Dialog", "\320\222\321\226\320\273\321\214\320\275\320\276 \320\275\320\260 \320\264\320\270\321\201\320\272\321\203 (Gb):", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("Dialog", "\320\224\321\226\320\260\320\263\321\200\320\260\320\274\320\260 \320\267\320\260\320\271\320\275\321\217\321\202\320\276\320\263\320\276 \320\277\321\200\320\276\321\201\321\202\320\276\321\200\321\203", Q_NULLPTR));
+        grbName->setTitle(QApplication::translate("Dialog", "\320\206\320\275\321\204\320\276\321\200\320\274\320\260\321\206\321\226\321\217 \320\277\321\200\320\276 \320\272\320\276\320\274\320\277'\321\216\321\202\320\265\321\200", Q_NULLPTR));
+        lblHostMashineName->setText(QApplication::translate("Dialog", "\320\206\320\274'\321\217 \321\205\320\276\321\201\321\202\320\260:", Q_NULLPTR));
+        lblCurrentArchCPU->setText(QApplication::translate("Dialog", "\320\220\321\200\321\205\321\226\321\202\320\265\320\272\321\202\321\203\321\200\320\260 CPU: ", Q_NULLPTR));
+        lblKernelType->setText(QApplication::translate("Dialog", "\320\242\320\270\320\277 \321\217\320\264\321\200\320\260: ", Q_NULLPTR));
+        lblKernelVersion->setText(QApplication::translate("Dialog", "\320\222\320\265\321\200\321\201\321\226\321\217 \321\217\320\264\321\200\320\260: ", Q_NULLPTR));
+        lblAllArchInfo->setText(QApplication::translate("Dialog", "\320\237\320\276\320\262\320\275\320\260 \321\226\320\275\321\204\320\276\321\200\320\274\320\260\321\206\321\226\321\217: ", Q_NULLPTR));
     } // retranslateUi
 
 };

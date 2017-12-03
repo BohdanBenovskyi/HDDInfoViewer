@@ -10,6 +10,7 @@ Dialog::Dialog(QWidget *parent) :
     model = new QStringListModel(this);
     CheckDrives();
     connect(ui->lstDrives, SIGNAL(clicked(QModelIndex)), this, SLOT(on_btnFormat_enabled()));
+
     QGradientStops gradientPoints;
     gradientPoints << QGradientStop(0, Qt::green) << QGradientStop(0.5, Qt::yellow) << QGradientStop(1, Qt::red);
     ui->RoundBar->setDataColors(gradientPoints);
@@ -22,9 +23,16 @@ Dialog::Dialog(QWidget *parent) :
     p2.setColor(QPalette::Text, Qt::magenta);
     p2.setColor(QPalette::Shadow, Qt::green);
     ui->RoundBar->setPalette(p2);
-    ui->RoundBar->setNullPosition(QRoundProgressBar::PositionRight);
-    ui->RoundBar->setBarStyle(QRoundProgressBar::StylePie);
+    ui->RoundBar->setNullPosition(QRoundProgressBar::PositionTop);
+    ui->RoundBar->setBarStyle(QRoundProgressBar::StyleDonut);
     ui->RoundBar->setDataColors(gradientPoints);
+
+    ui->lblHostMashineName->setText("Ім'я хоста: " + QSysInfo::machineHostName());
+    ui->lblAllArchInfo->setText("Повна інформація: " + QSysInfo::buildAbi());
+    ui->lblKernelType->setText("Тип ядра: " + QSysInfo::kernelType());
+    ui->lblKernelVersion->setText("Версія ядра: " + QSysInfo::kernelVersion());
+    ui->lblCurrentArchCPU->setText("Архітектура CPU: " + QSysInfo::buildCpuArchitecture());
+
 }
 
 void Dialog::CheckDrives()
